@@ -269,7 +269,7 @@
         .reno-gifts-item:nth-child(1) {border-left:none; border-top:none; padding-left:0}
         .reno-gifts-item:nth-child(2) {border-top:none; padding-right:0}
         .reno-gifts-item:nth-child(3) {border-left:none; padding-left:0}
-        .reno-gifts-item:nth-child(3) {border-left:none; padding-right:0}
+        .reno-gifts-item:nth-child(4) {border-left:none; padding-right:0}
         .reno-gifts-item-title {width:104px; height:29px; background:#FE3737; color:#fff; text-transform:uppercase; text-align:center; font-weight:600; font-size:13px; line-height:29px; letter-spacing:0.04em}
         .reno-gifts-item-logo {height:74px; line-height:74px; text-align:center}
         .reno-gifts-item-logo img {display:inline-block; vertical-align:middle}
@@ -283,12 +283,43 @@
         .reno-gifts-item-text-2 {font-size:18px; line-height:19px; font-weight:600}
         .reno-gifts-item-text-2:first-child {padding:28px 0 0 0}
 
-        .reno-video-mobile {padding:53px 20px 83px 20px; font-size:0; line-height:0; letter-spacing:-1px; background:#004e54; background:linear-gradient(125.41deg, #004E54 -10.21%, #001C1E 224.31%)}
-        .reno-video-mobile-item {display:block; margin:20px 0 0 0; padding:56.25% 0 0 0; box-sizing:border-box; position:relative}
-        .reno-video-mobile-item iframe {position:absolute; left:0; top:0; width:100%; height:100%}
+        .reno-video-mobile {padding:42px 20px 93px 20px; font-size:0; line-height:0; letter-spacing:-1px; background:#004e54; background:linear-gradient(125.41deg, #004E54 -10.21%, #001C1E 224.31%); white-space:nowrap}
+        .reno-video-mobile-list-inner {width:100%; position:relative; overflow:hidden}
+        .reno-video-mobile-list-inner.slick-initialized {overflow:visible}
+        .reno-video-mobile-item {display:inline-block; width:100%; vertical-align:top; box-sizing:border-box; position:relative}
+        .reno-video-mobile-item-inner {padding:56.25% 0 0 0; position:relative}
+        .reno-video-mobile-item iframe {display:none; position:absolute; left:0; top:0; width:100%; height:100%}
+        .reno-video-mobile-item.reno-video-mobile-play-start iframe {display:block}
+        .reno-video-mobile-item .reno-video-mobile-preview {display:block; position:absolute; left:0; top:0; min-width:100%; min-height:100%; cursor:pointer}
+        .reno-video-mobile-item.reno-video-mobile-play-start .reno-video-mobile-preview {display:none}
+        .reno-video-mobile-play {display:block; position:absolute; left:50%; top:50%; width:79px; height:79px; margin:-40px 0 0 -40px; background:#021118 url(images/reno-video-play.png) no-repeat 29px center; border-radius:50%; cursor:pointer}
+        .reno-video-mobile-item.reno-video-mobile-play-start .reno-video-mobile-play {display:none}
+        .reno-video-mobile .slick-prev,
+        .reno-video-mobile .slick-next {display:block; position:absolute; z-index:2; bottom:-50px; width:40px; height:7px; border:none; border-radius:0; margin:0; padding:0; outline:none; -webkit-appearance:none; cursor:pointer}
+        .reno-video-mobile .slick-prev {right:50%; margin-right:115px; background:url(images/reno-video-prev.png)}
+        .reno-video-mobile .slick-next {left:50%; margin-left:115px; background:url(images/reno-video-next.png)}
+        .reno-video-mobile .slick-dots {position:absolute; left:50%; bottom:-51px; margin:0; padding:0; list-style:none; font-size:0; line-height:0; letter-spacing:-1px; text-align:left; transform:translateX(-50%)}
+        .reno-video-mobile .slick-dots li {margin:0 0 0 26px; padding:0; display:inline-block; vertical-align:top; position:relative}
+        .reno-video-mobile .slick-dots li:before {display:none}
+        .reno-video-mobile .slick-dots li:first-child {margin:0}
+        .reno-video-mobile .slick-dots li button {display:block; position:relative; width:8px; height:8px; border-radius:50%; border:none; background:#fff; margin:0; padding:0; outline:none; -webkit-appearance:none; cursor:pointer; font-size:0; line-height:0; text-indent:100px; opacity:0.4}
+        .reno-video-mobile .slick-dots li.slick-active button {opacity:1}
 
         .reno-pubg {text-align:center; line-height:0}
         .reno-pubg img {display:block; width:100%}
+    }
+    @media (max-width:479px) {
+        .reno-welcome-title {font-size:34px; line-height:38px}
+        .reno-welcome-subtitle {font-size:26px; line-height:29px}
+        .reno-welcome-btn span {font-size:15px}
+        .reno-welcome-shop {width:124px}
+
+        .reno-pref {width:100%}
+        .reno-gifts-item {width:100%; border-left:none; border-top:1px solid rgba(0, 78, 84, 0.08)}
+        .reno-gifts-item:nth-child(1) {border-left:none; border-top:none; padding-right:0; padding-left:0}
+        .reno-gifts-item:nth-child(2) {border-left:none; border-top:1px solid rgba(0, 78, 84, 0.08); padding-right:0; padding-left:0}
+        .reno-gifts-item:nth-child(3) {border-left:none; padding-right:0; padding-left:0}
+        .reno-gifts-item:nth-child(4) {border-left:none; padding-right:0; padding-left:0}
     }
 </style>
 
@@ -395,13 +426,30 @@
 
 <div class="reno-video-mobile">
     <div class="reno-video-mobile-list">
-        <div class="reno-video-mobile-item"><iframe src="https://www.youtube.com/embed/8tgq3YBlS2E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        <div class="reno-video-mobile-item"><iframe src="https://www.youtube.com/embed/68OfJnQ7oes" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        <div class="reno-video-mobile-item"><iframe src="https://www.youtube.com/embed/c8Eh8WOWTSY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
-        <div class="reno-video-mobile-item"><iframe src="https://www.youtube.com/embed/7DmbuIhjCIc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="reno-video-mobile-list-inner">
+            <div class="reno-video-mobile-item"><div class="reno-video-mobile-item-inner"><iframe src="https://www.youtube.com/embed/8tgq3YBlS2E" frameborder="0" allow="autoplay" allowfullscreen></iframe><img src="images/reno-video-1.jpg" alt="" class="reno-video-mobile-preview" /><div class="reno-video-mobile-play"></div></div></div>
+            <div class="reno-video-mobile-item"><div class="reno-video-mobile-item-inner"><iframe src="https://www.youtube.com/embed/68OfJnQ7oes" frameborder="0" allow="autoplay" allowfullscreen></iframe><img src="images/reno-video-2.jpg" alt="" class="reno-video-mobile-preview" /><div class="reno-video-mobile-play"></div></div></div>
+            <div class="reno-video-mobile-item"><div class="reno-video-mobile-item-inner"><iframe src="https://www.youtube.com/embed/c8Eh8WOWTSY" frameborder="0" allow="autoplay" allowfullscreen></iframe><img src="images/reno-video-1.jpg" alt="" class="reno-video-mobile-preview" /><div class="reno-video-mobile-play"></div></div></div>
+            <div class="reno-video-mobile-item"><div class="reno-video-mobile-item-inner"><iframe src="https://www.youtube.com/embed/7DmbuIhjCIc" frameborder="0" allow="autoplay" allowfullscreen></iframe><img src="images/reno-video-4.jpg" alt="" class="reno-video-mobile-preview" /><div class="reno-video-mobile-play"></div></div></div>
+        </div>
     </div>
     <div class="reno-video-view"></div>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $('body').on('click', '.reno-video-mobile-preview, .reno-video-mobile-play', function(e) {
+            var curItem = $(this).parents().filter('.reno-video-mobile-item');
+            var curLink = curItem.find('iframe').attr('src') + '?autoplay=1';
+            curItem.addClass('reno-video-mobile-play-start');
+            curItem.find('iframe').replace('<iframe src="' + curLink + '" frameborder="0" allow="autoplay" allowfullscreen></iframe>');
+            e.stopPropagation();
+        });
+
+    });
+</script>
 
 <div class="reno-pubg"><img src="images/reno-pubg.jpg" alt="" /></div>
 <!-- mobile END -->
@@ -463,8 +511,14 @@
         .reno-video-item a {display:block; position:relative}
         .reno-video-item.active a::after {content:""; display:block; position:absolute; left:0; top:0; right:0; bottom:0; border:3px solid #20d1de}
         .reno-video-item img {display:block; width:100%}
-        .reno-video-view {margin:20px 0 0 0; position:relative; padding:56.25% 0 0 0}
-        .reno-video-view iframe {position:absolute; left:0; top:0; width:100%; height:100%}
+        .reno-video-view {margin:20px 0 0 0; position:relative; padding:56.25% 0 0 0; overflow:hidden}
+        .reno-video-view iframe {display:none; position:absolute; left:0; top:0; width:100%; height:100%}
+        .reno-video-view.reno-video-play-start iframe {display:block}
+        .reno-video-view .reno-video-preview {display:block; position:absolute; left:0; top:0; min-width:100%; min-height:100%; cursor:pointer}
+        .reno-video-view.reno-video-play-start .reno-video-preview {display:none}
+        .reno-video-play {display:block; position:absolute; left:50%; top:50%; width:79px; height:79px; margin:-40px 0 0 -40px; background:#021118 url(images/reno-video-play.png) no-repeat 29px center; border-radius:50%; cursor:pointer}
+        .reno-video-view:hover .reno-video-play {opacity:0.75}
+        .reno-video-view.reno-video-play-start .reno-video-play {display:none}
 
         .reno-pubg {text-align:center; line-height:0}
         .reno-pubg img {display:block; width:100%}
@@ -574,12 +628,12 @@
 
 <div class="reno-video">
     <div class="reno-video-list">
-        <div class="reno-video-item active"><a href="https://www.youtube.com/embed/8tgq3YBlS2E"><img src="images/reno-video-1.jpg" alt="" /></a></div>
-        <div class="reno-video-item"><a href="https://www.youtube.com/embed/68OfJnQ7oes"><img src="images/reno-video-2.jpg" alt="" /></a></div>
-        <div class="reno-video-item"><a href="https://www.youtube.com/embed/c8Eh8WOWTSY"><img src="images/reno-video-1.jpg" alt="" /></a></div>
-        <div class="reno-video-item"><a href="https://www.youtube.com/embed/7DmbuIhjCIc"><img src="images/reno-video-4.jpg" alt="" /></a></div>
+        <div class="reno-video-item active"><a href="https://www.youtube.com/embed/8tgq3YBlS2E" data-preview="images/reno-video-1.jpg"><img src="images/reno-video-1.jpg" alt="" /></a></div>
+        <div class="reno-video-item"><a href="https://www.youtube.com/embed/68OfJnQ7oes" data-preview="images/reno-video-2.jpg"><img src="images/reno-video-2.jpg" alt="" /></a></div>
+        <div class="reno-video-item"><a href="https://www.youtube.com/embed/c8Eh8WOWTSY" data-preview="images/reno-video-1.jpg"><img src="images/reno-video-1.jpg" alt="" /></a></div>
+        <div class="reno-video-item"><a href="https://www.youtube.com/embed/7DmbuIhjCIc" data-preview="images/reno-video-4.jpg"><img src="images/reno-video-4.jpg" alt="" /></a></div>
     </div>
-    <div class="reno-video-view"><iframe src="https://www.youtube.com/embed/8tgq3YBlS2E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    <div class="reno-video-view"><iframe src="https://www.youtube.com/embed/8tgq3YBlS2E" frameborder="0" allow="autoplay" allowfullscreen></iframe><img src="images/reno-video-1.jpg" alt="" class="reno-video-preview" /><div class="reno-video-play"></div></div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -591,10 +645,18 @@
             var curItem = curLink.parent();
             if (!curItem.hasClass('active')) {
                 $('.reno-video-item.active').removeClass('active');
-                $('.reno-video-view').html('<iframe src="' + curLink.attr('href') + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
+                $('.reno-video-view').removeClass('reno-video-play-start');
+                $('.reno-video-view').html('<iframe src="' + curLink.attr('href') + '" frameborder="0" allow="autoplay" allowfullscreen></iframe><img src="' + curLink.data('preview') + '" alt="" class="reno-video-preview" /><div class="reno-video-play"></div>');
                 curItem.addClass('active');
             }
             e.preventDefault();
+        });
+
+        $('body').on('click', '.reno-video-view .reno-video-preview, .reno-video-view .reno-video-play', function(e) {
+            var curLink = $('.reno-video-item.active a');
+            $('.reno-video-view').html('<iframe src="' + curLink.attr('href') + '?autoplay=1" frameborder="0" allow="autoplay" allowfullscreen></iframe><img src="' + curLink.data('preview') + '" alt="" class="reno-video-preview" /><div class="reno-video-play"></div>');
+            $('.reno-video-view').addClass('reno-video-play-start');
+            e.stopPropagation();
         });
 
     });
@@ -725,6 +787,24 @@
     <script type="text/javascript" src="https://assorted.downloads.oppo.com/static/assets/js/common-5b75236465c53320684d3058d881944382c7f299.js"></script>
 
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $('.reno-video-mobile-list-inner').slick({
+                infinite: false,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                prevArrow: '<button type="button" class="slick-prev"></button>',
+                nextArrow: '<button type="button" class="slick-next"></button>',
+                dots: true
+            });
+
+        });
+    </script>
+
     </body>
 
 </html>
