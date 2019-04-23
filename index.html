@@ -433,7 +433,6 @@
             <div class="reno-video-mobile-item"><div class="reno-video-mobile-item-inner"><iframe src="https://www.youtube.com/embed/7DmbuIhjCIc" frameborder="0" allow="autoplay" allowfullscreen></iframe><img src="images/reno-video-4.jpg" alt="" class="reno-video-mobile-preview" /><div class="reno-video-mobile-play"></div></div></div>
         </div>
     </div>
-    <div class="reno-video-view"></div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -451,7 +450,7 @@
     });
 </script>
 
-<div class="reno-pubg"><img src="images/reno-pubg.jpg" alt="" /></div>
+<div class="reno-pubg"><a href="#"><img src="images/reno-pubg.jpg" alt="" /></a></div>
 <!-- mobile END -->
 
 </div>
@@ -487,7 +486,9 @@
         .reno-gifts-content {position:relative; padding:189px 0 142px 0}
         .reno-gifts-title {font-size:28px; line-height:40px; font-weight:normal; color:#454545}
         .reno-gifts-title strong {font-weight:600}
-        .reno-gifts-link {margin:50px 0 0 0; display:block; width:162px; height:45px; text-align:center; text-decoration:none; color:#fff; background:#004E54; font-weight:600; font-size:18px; line-height:45px; letter-spacing:0.04em; text-transform:uppercase}
+        .reno-gifts-link {margin:50px 0 0 0; display:block; width:162px; height:45px; text-align:center; text-decoration:none; color:#fff; background:#004E54; font-weight:600; font-size:18px; line-height:45px; letter-spacing:0.04em; text-transform:uppercase; position:relative; overflow:hidden}
+        .reno-gifts-link::before {content:""; display:block; background:#fff; height:155px; left:-75px; opacity:.2; position:absolute; top:-50px; transform:rotate(35deg); transition:all 550ms cubic-bezier(0.19, 1, 0.22, 1); width:50px}
+        .reno-gifts-link:hover::before {left:120%}
         .reno-gifts-list {position:relative}
         .reno-gifts-list::after {content:""; display:block; clear:both}
         .reno-gifts-item {float:left; width:25%; padding:19px 25px 9px 25px; box-sizing:border-box; border-left:1px solid rgba(0, 78, 84, 0.08)}
@@ -509,6 +510,9 @@
         .reno-video-list {margin:0 -10px}
         .reno-video-item {display:inline-block; vertical-align:top; width:25%; padding:0 10px; box-sizing:border-box}
         .reno-video-item a {display:block; position:relative}
+        .reno-video-item a::before {content:""; display:block; position:absolute; left:0; top:0; right:0; bottom:0; background:#000; opacity:0.5; transition:all 0.5s}
+        .reno-video-item a:hover::before {opacity:0}
+        .reno-video-item.active a::before {opacity:0}
         .reno-video-item.active a::after {content:""; display:block; position:absolute; left:0; top:0; right:0; bottom:0; border:3px solid #20d1de}
         .reno-video-item img {display:block; width:100%}
         .reno-video-view {margin:20px 0 0 0; position:relative; padding:56.25% 0 0 0; overflow:hidden}
@@ -645,8 +649,11 @@
             var curItem = curLink.parent();
             if (!curItem.hasClass('active')) {
                 $('.reno-video-item.active').removeClass('active');
-                $('.reno-video-view').removeClass('reno-video-play-start');
-                $('.reno-video-view').html('<iframe src="' + curLink.attr('href') + '" frameborder="0" allow="autoplay" allowfullscreen></iframe><img src="' + curLink.data('preview') + '" alt="" class="reno-video-preview" /><div class="reno-video-play"></div>');
+                $('.reno-video-view').animate({'opacity': 0}, 300, function(e) {
+                    $('.reno-video-view').removeClass('reno-video-play-start');
+                    $('.reno-video-view').html('<iframe src="' + curLink.attr('href') + '" frameborder="0" allow="autoplay" allowfullscreen></iframe><img src="' + curLink.data('preview') + '" alt="" class="reno-video-preview" /><div class="reno-video-play"></div>');
+                    $('.reno-video-view').animate({'opacity': 1}, 300);
+                });
                 curItem.addClass('active');
             }
             e.preventDefault();
@@ -662,7 +669,7 @@
     });
 </script>
 
-<div class="reno-pubg"><img src="images/reno-pubg.jpg" alt="" /></div>
+<div class="reno-pubg"><a href="#"><img src="images/reno-pubg.jpg" alt="" /></a></div>
 
 <!-- desktop END -->
 
